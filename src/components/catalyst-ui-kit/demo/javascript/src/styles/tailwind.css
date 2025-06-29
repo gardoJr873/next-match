@@ -1,0 +1,6 @@
+@import '../../../../../../../node_modules/tailwindcss/dist/lib.d.mts';
+
+@theme {
+  --font-sans: Inter, sans-serif;
+  --font-sans--font-feature-settings: 'cv11';
+}
