@@ -3,7 +3,9 @@ import LoginForm from "@/app/(auth)/login/LoginForm";
 
 function LoginPage() {
   return (
-    <LoginForm />
+    <div className={'flex items-center justify-center align-middle min-h-screen'}>
+      <LoginForm />
+    </div>
   );
 }
 
