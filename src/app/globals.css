@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 
+@layer components {
+    .vertical-center {
+        height: calc(100vh - 64px);
+    }
+}
+
 @theme {
     --color-blue-grey-10: #f1f5f8;
 }

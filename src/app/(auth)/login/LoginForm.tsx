@@ -1,8 +1,14 @@
+'use client'
+
 import React from 'react';
-import { Card, CardBody, CardHeader } from "@heroui/card";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Input,
+  Button
+  } from "@heroui/react";
 import { GiPadlock } from "react-icons/gi";
-import { Input } from "@heroui/input";
-import { Button } from "@heroui/button";
 
 
 function LoginForm() {
@@ -34,7 +40,8 @@ function LoginForm() {
               variant={'underlined'}
             >
             </Input>
-            <Button fullWidth type={'submit'} color={"secondary"}>
+            <Button fullWidth={true} type={'submit'} color={'secondary'}
+            >
               Login
             </Button>
           </div>
