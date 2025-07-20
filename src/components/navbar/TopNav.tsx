@@ -26,9 +26,10 @@ function TopNav() {
       <NavbarBrand
       as={Link}
       href={'/'}
+      className={''}
       >
         <GiMatchHead
-          className={'h-14 w-11 rotate-45'}
+          className={'h-14 w-11 -rotate-20 text-white'}
         />
         <div className={'flex text-3xl font-bold'}>
           <span className={'text-gray-900'}>Next</span>

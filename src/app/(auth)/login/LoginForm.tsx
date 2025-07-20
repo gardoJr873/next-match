@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react';
 import {
   Card,
   CardBody,
@@ -8,16 +7,29 @@ import {
   Input,
   Button
   } from "@heroui/react";
+import React from 'react';
 import { GiPadlock } from "react-icons/gi";
+import { SubmitHandler, useForm } from "react-hook-form";
 
+interface FormData {
+  email: string
+  password: string
+};
 
 function LoginForm() {
+  const {
+    register,
+    handleSubmit
+  } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = data => console.log(data);
+
   return (
     // Card - Main component to display a card
     <Card className={'w-2/5 mx-auto'}>
       {/* CardHeader - Used for the title */}
       <CardHeader className={'flex flex-col items-center justify-center'}>
-        <div className={'flex flex-col gap-2 items-center text-secondary'}>
+        <div className={'flex flex-col gap-2 items-center text-gray-500'}>
           <div className={'flex flex-row items-center gap-3'}>
             <GiPadlock size={30}/>
             <h1 className={'text-3xl font-semibold'}>Login</h1>
@@ -27,20 +39,25 @@ function LoginForm() {
       </CardHeader>
       {/* CardBody - Contains content */}
       <CardBody>
-        <form action="">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={'space-y-4'}>
             <Input
               label={'Email'}
               variant={"underlined"}
+              {...register('email')}
             >
             </Input>
             <Input
               label={'Password'}
               type={'password'}
               variant={'underlined'}
+              {...register('password')}
             >
             </Input>
-            <Button fullWidth={true} type={'submit'} color={'secondary'}
+            <Button
+              fullWidth={true}
+              type={'submit'}
+              color={'secondary'}
             >
               Login
             </Button>
