@@ -9,20 +9,20 @@ import {
   } from "@heroui/react";
 import React from 'react';
 import { GiPadlock } from "react-icons/gi";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import {loginSchema, LoginSchema} from "@/lib/schemas/loginSchema";
+import {zodResolver} from "@hookform/resolvers/zod";
 
-interface FormData {
-  email: string
-  password: string
-};
 
 function LoginForm() {
   const {
     register,
-    handleSubmit
-  } = useForm<FormData>();
-
-  const onSubmit: SubmitHandler<FormData> = data => console.log(data);
+    handleSubmit,
+    formState: {errors, isValid},
+  } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema), mode: "onTouched" });
+  const onSubmit = ((data: LoginSchema) => {
+    console.log(data)
+  })
 
   return (
     // Card - Main component to display a card
@@ -42,16 +42,28 @@ function LoginForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={'space-y-4'}>
             <Input
+              isClearable={true}
+              defaultValue={''}
+              placeholder={'Enter you email'}
+              autoComplete={'email'}
               label={'Email'}
               variant={"underlined"}
               {...register('email')}
+              isInvalid={!!errors.email}
+              errorMessage={errors.email?.message as string}
             >
             </Input>
             <Input
+              isClearable={true}
+              defaultValue={''}
+              placeholder={'Enter your password'}
+              autoComplete={'current-password'}
               label={'Password'}
               type={'password'}
               variant={'underlined'}
               {...register('password')}
+              isInvalid={!!errors.password}
+              errorMessage={errors.password?.message as string}
             >
             </Input>
             <Button
