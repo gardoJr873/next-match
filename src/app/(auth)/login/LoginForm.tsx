@@ -10,15 +10,15 @@ import {
 import React from 'react';
 import { GiPadlock } from "react-icons/gi";
 import { useForm } from "react-hook-form";
-import {loginSchema, LoginSchema} from "@/lib/schemas/loginSchema";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { loginSchema, LoginSchema } from "@/lib/schemas/loginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 
 function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: {errors, isValid},
+    formState: { errors },
   } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema), mode: "onTouched" });
   const onSubmit = ((data: LoginSchema) => {
     console.log(data)
