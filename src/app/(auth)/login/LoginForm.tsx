@@ -50,7 +50,7 @@ function LoginForm() {
               variant={"underlined"}
               {...register('email')}
               isInvalid={!!errors.email}
-              errorMessage={errors.email?.message as string}
+              errorMessage={errors.email?.message}
             >
             </Input>
             <Input
@@ -63,7 +63,7 @@ function LoginForm() {
               variant={'underlined'}
               {...register('password')}
               isInvalid={!!errors.password}
-              errorMessage={errors.password?.message as string}
+              errorMessage={errors.password?.message}
             >
             </Input>
             <Button
