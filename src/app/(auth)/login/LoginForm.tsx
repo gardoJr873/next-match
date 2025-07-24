@@ -45,7 +45,7 @@ function LoginForm() {
               isClearable={true}
               defaultValue={''}
               placeholder={'Enter you email'}
-              autoComplete={'email'}
+              autoComplete={'on'}
               label={'Email'}
               variant={"underlined"}
               {...register('email')}
@@ -57,7 +57,7 @@ function LoginForm() {
               isClearable={true}
               defaultValue={''}
               placeholder={'Enter your password'}
-              autoComplete={'current-password'}
+              autoComplete={'on'}
               label={'Password'}
               type={'password'}
               variant={'underlined'}
