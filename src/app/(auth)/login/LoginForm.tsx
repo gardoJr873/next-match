@@ -29,7 +29,7 @@ function LoginForm() {
     <Card className={'w-2/5 mx-auto'}>
       {/* CardHeader - Used for the title */}
       <CardHeader className={'flex flex-col items-center justify-center'}>
-        <div className={'flex flex-col gap-2 items-center text-gray-500'}>
+        <div className={'flex flex-col gap-2 items-center justify-center text-gray-500'}>
           <div className={'flex flex-row items-center gap-3'}>
             <GiPadlock size={30}/>
             <h1 className={'text-3xl font-semibold'}>Login</h1>
