@@ -12,6 +12,7 @@ import { GiPadlock } from "react-icons/gi";
 import { useForm } from "react-hook-form";
 import { loginSchema, LoginSchema } from "@/lib/schemas/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {isValid} from "zod";
 
 
 function LoginForm() {
@@ -67,6 +68,7 @@ function LoginForm() {
             >
             </Input>
             <Button
+              isDisabled={!isValid}
               fullWidth={true}
               type={'submit'}
               color={'secondary'}

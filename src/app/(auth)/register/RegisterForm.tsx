@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema, RegisterSchema } from "@/lib/schemas/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PiUserPlusBold } from "react-icons/pi";
+import {isValid} from "zod";
 
 
 function RegisterForm() {
@@ -59,7 +60,7 @@ function RegisterForm() {
                   autoComplete={'on'}
                   label={'Email'}
                   variant={'underlined'}
-                  {...register("email")}
+                  {...register('email')}
                   isInvalid={!!errors.email}
                   errorMessage={errors.email?.message}
                 >
@@ -68,13 +69,16 @@ function RegisterForm() {
                   isClearable={true}
                   defaultValue={''}
                   placeholder={'Create password'}
+                  autoComplete={'new-password'}
                   label={'Password'}
                   variant={'underlined'}
-                  autoComplete={'new-password'}
+                  {...register('password')}
+                  isInvalid={!!errors.password}
                   errorMessage={errors.password?.message}
                 >
                 </Input>
                 <Button
+                  isDisabled={!isValid}
                   fullWidth={true}
                   type={'submit'}
                   color={'secondary'}
